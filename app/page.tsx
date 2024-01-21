@@ -62,7 +62,7 @@ export default function Home() {
                 transform: exploreClicked ? 'translateX(50px)' : 'translateX(0)', // Move the button forward on click
               }}
             >
-             --->
+             →
             </button>
           </Link>
         </div>
