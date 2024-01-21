@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Navbar from './components/Navbar';
 import Link from 'next/link';
 import { useState } from 'react';
+import './globals.css'
 
 export default function Home() {
   const [exploreClicked, setExploreClicked] = useState(false);
@@ -14,7 +15,7 @@ export default function Home() {
   return (
     <main style={{ backgroundImage: "url('3644996.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <Navbar />
-      <div style={{ height: "92vh", width: "100vw", position: 'relative' }}>
+      <div  className='main_div'>
         <div style={{ position: 'absolute', left: '7%', top: '17%', color: 'black', textAlign: 'left' }}>
           <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', fontFamily: "'Kotta One', sans-serif" }}>PROJECT<br/> MATCHMAKER -</h1>
           <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', fontFamily: "'Kotta One', sans-serif"}}>Explore Your Digital <br/> Horizon</h1>
@@ -30,7 +31,7 @@ export default function Home() {
           width: '450px',
           height: '425px',
           textAlign: 'left',
-          border: '2px solid black'
+          border: '2px solid black',
         }}>
           <div style={{
             padding: '25px',

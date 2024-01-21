@@ -1,11 +1,23 @@
 'use client';
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent ,useEffect} from 'react';
+import axios from 'axios';
 import './custom.css';
 
 const Page = () => {
   const [query, setQuery] = useState('');
-  const [response, setResponse] = useState('');
+  const [response, setResponse] = useState({});
   const [isFocused, setIsFocused] = useState(false);
+  useEffect(() => {
+    if (query) {
+      fetch(`http://127.0.0.1:8000/api/projects/${query}`)
+        .then((response) => {
+          setResponse({response});
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+  }, [query]);
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -16,10 +28,8 @@ const Page = () => {
     setQuery(event.target.value);
   };
 
-  const handleSubmit = () => {
-    // Handle query submission logic here
-    console.log('Query submitted:', query);
-    setResponse('')
+  function handleSubmit () {
+    console.log(response);
   };
 
   const quickQueries = ['AI for HealthCare', 'Encryption Project', 'Gen AI with Llama Project', 'Amazon clone', 'Management System'];
