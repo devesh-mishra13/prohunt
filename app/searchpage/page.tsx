@@ -5,6 +5,12 @@ import './custom.css';
 const Page = () => {
   const [query, setQuery] = useState('');
   const [response, setResponse] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
@@ -49,10 +55,11 @@ const Page = () => {
           placeholder="Type to Search"
           value={query}
           onChange={handleInputChange}
+          onFocus={handleFocus}
           style={{
             padding: '20px', // Increased padding
-            fontSize: '100px', // Increased font size
-            top: '30%',
+            fontSize: !isFocused?'100px':'50px', // Increased font size
+            top: !isFocused?'30%':'35%',
             left: '30%',
             position: 'absolute',
             border: 'none',
